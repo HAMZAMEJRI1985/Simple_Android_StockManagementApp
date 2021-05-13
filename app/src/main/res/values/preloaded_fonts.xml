@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/abril_fatface</item>
+        <item>@font/akronim</item>
+        <item>@font/aladin</item>
+        <item>@font/alex_brush</item>
+        <item>@font/allura</item>
+        <item>@font/almendra</item>
+        <item>@font/almendra_sc</item>
+        <item>@font/asset</item>
+        <item>@font/emilys_candy</item>
+    </array>
+</resources>
