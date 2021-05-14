@@ -1,0 +1,61 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00a3a3</item>
+        <item name="colorPrimaryDark">#00a3a3</item>
+        <item name="colorAccent">#00a3a3</item>
+    </style>
+
+    <style name="AppThemeEntreprise" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF007F</item>
+        <item name="colorPrimaryDark">#FF007F</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeFlotte" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF8000</item>
+        <item name="colorPrimaryDark">#FF8000</item>
+        <item name="colorAccent">#FF8000</item>
+    </style>
+
+    <style name="AppThemeVoyage" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#0007CC</item>
+        <item name="colorPrimaryDark">#0007cc</item>
+        <item name="colorAccent">#0007cc</item>
+    </style>
+
+    <style name="AppThemeIncident" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#7300ff</item>
+        <item name="colorPrimaryDark">#7300ff</item>
+        <item name="colorAccent">#7300ff</item>
+    </style>
+
+    <style name="AppThemeMap" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00C853</item>
+        <item name="colorPrimaryDark">#00C853</item>
+        <item name="colorAccent">#00C853</item>
+    </style>
+    <style name="AppThemeAddIncident" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#c80000</item>
+        <item name="colorPrimaryDark">#c80000</item>
+        <item name="colorAccent">#c80000</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

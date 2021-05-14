@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/accueil"
+    android:background="@drawable/accueil2"
     >
 
     <TextView
@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView2"
         android:layout_alignTop="@+id/login"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="-11dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="37dp"
         android:fontFamily="@font/akronim"
-        android:text="login"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="90px"
+        android:text="@string/passwd"
+        android:textColor="@android:color/white"
+        android:textSize="60px"
         android:textStyle="bold" />
 
     <TextView
@@ -29,12 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/cx"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="74dp"
         android:fontFamily="@font/akronim"
-        android:text="password"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="90px"
+        android:text="@string/log"
+        android:textColor="@android:color/white"
+        android:textSize="60px"
         android:textStyle="bold" />
 
     <EditText
@@ -43,14 +43,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="44dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="50px"
-        android:text="dridikhaled@gmail.com"/>
+        android:text="mejrihamzaemail@gmail.com"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="50px" />
 
     <EditText
         android:id="@+id/password"
@@ -58,27 +58,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="163dp"
+        android:layout_marginEnd="44dp"
+        android:background="@android:color/white"
         android:ems="10"
         android:inputType="textPassword"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="50px"
-        android:background="@android:color/white"
-        android:text="12345678"/>
+        android:text="1234"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="50px" />
 
     <Button
         android:id="@+id/cx"
-        android:layout_width="203dp"
+        android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="0dp"
-        android:background="@android:color/holo_green_light"
-        android:text="GO"
-        android:textStyle="bold"
-        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="43dp"
+        android:background="@android:color/holo_blue_light"
         android:fontFamily="@font/akronim"
-        android:textSize="70px"/>
+        android:text="@string/con"
+        android:textColor="@android:color/white"
+        android:textSize="55px"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/insc"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="242dp"
+        android:layout_marginEnd="42dp"
+        android:background="@android:color/holo_blue_light"
+        android:fontFamily="@font/akronim"
+        android:text="@string/ins"
+        android:textColor="@android:color/white"
+        android:textSize="55px"
+        android:textStyle="bold" />
 </RelativeLayout>

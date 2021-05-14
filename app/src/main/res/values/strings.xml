@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MEJRIHamza-GestionDeStock</string>
+    <string name="log">email/tel</string>
+    <string name="passwd">password</string>
+    <string name="con">se connecter</string>
+    <string name="ins">s\'inscrire</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="tel">Tel</string>
+    <string name="confirmPassword">Confirmez le mot de passe</string>
+    <string name="email">Adresse électronique</string>
+    <string name="emailLog">email</string>
+    <string name="password">Mot de passe</string>
+    <string name="cancel">Annuler</string>
+    <string name="gestock">Gestion des produits</string>
+    <string name="setings">Paramètres</string>
+    <string name="apropos">À propos</string>
+    <string name="decx">Déconnexion</string>
 </resources>
