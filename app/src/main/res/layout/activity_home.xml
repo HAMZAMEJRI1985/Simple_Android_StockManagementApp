@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/seting"
+        android:id="@+id/btnSeting"
         android:layout_width="190dp"
         android:layout_height="284dp"
         android:layout_alignParentTop="true"
@@ -36,7 +36,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/apropos"
+        android:id="@+id/btnApropos"
         android:layout_width="190dp"
         android:layout_height="284dp"
         android:layout_alignParentStart="true"
@@ -50,7 +50,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/decx"
+        android:id="@+id/btnDecx"
         android:layout_width="190dp"
         android:layout_height="284dp"
         android:layout_alignParentEnd="true"

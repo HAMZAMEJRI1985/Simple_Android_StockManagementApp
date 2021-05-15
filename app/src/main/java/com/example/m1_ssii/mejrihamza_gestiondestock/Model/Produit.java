@@ -11,12 +11,19 @@ public class Produit {
     private String created;
     private String modified;
 
-    public Produit(int id) {
-        this.id = id;
-    }
+    public Produit() {}
 
     public Produit(int id, String name, String description, int price, int quantity, String created, String modified) {
         this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.created = created;
+        this.modified = modified;
+    }
+
+    public Produit(String name, String description, int price, int quantity, String created, String modified) {
         this.name = name;
         this.description = description;
         this.price = price;
