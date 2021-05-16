@@ -3,28 +3,33 @@ package com.example.m1_ssii.mejrihamza_gestiondestock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.JsonReader;
 import android.widget.TextView;
 
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.ApiGestock;
+import com.example.m1_ssii.mejrihamza_gestiondestock.Model.DbServerResponse;
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.Produit;
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.RetrofitInstance;
+import com.example.m1_ssii.mejrihamza_gestiondestock.ProductRecyclerViewAdapter.ProductAdapter;
 
 import java.util.List;
 
-import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.PUT;
 
 public class GestionProduits extends AppCompatActivity {
 
-    private TextView test;
+
     private Retrofit r = RetrofitInstance.getRetroInstance();
     private ApiGestock apigs ;
     private Intent redirection;
+    private List<Produit> lstProduits;
+    private RecyclerView productRecyclerView;
+    private RecyclerView.LayoutManager productLayoutManager;
+    private ProductAdapter productAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +37,32 @@ public class GestionProduits extends AppCompatActivity {
         getSupportActionBar().setTitle("Gestion des produits");
         setContentView(R.layout.activity_gestion_produits);
 
-        test = (TextView) findViewById(R.id.test);
         apigs = r.create(ApiGestock.class);
 
 
         //GET ALL PRODUCTS
-        /*retrofit.Call<List<Produit>> getProduct = apigs.getAllProducts();
+        retrofit.Call<List<Produit>> getProduct = apigs.getAllProducts();
         getProduct.enqueue(new Callback<List<Produit>>() {
             @Override
             public void onResponse(Response<List<Produit>> response, Retrofit retrofit) {
-                Produit p = response.body().get(3);
-                test.setText(p.getDescription());
+                lstProduits             = (List<Produit>) response.body();
+                Produit p = lstProduits.get(1);
+                System.out.println(p.getQuantity());
+
+                productRecyclerView     = (RecyclerView) findViewById(R.id.product_recycler_view);
+                productLayoutManager    = new LinearLayoutManager(GestionProduits.this);
+                productRecyclerView.setLayoutManager(productLayoutManager);
+                productAdapter          = new ProductAdapter(GestionProduits.this,lstProduits);
+                productRecyclerView.setAdapter(productAdapter);
+
+
             }
 
             @Override
             public void onFailure(Throwable t) {
-                test.setText("FAILED");
+                System.out.println("FAILED");
             }
-        });*/
+        });
         //GET SPECIFIC PRODUCT
         /*retrofit.Call<Produit> getProduct = apigs.getProduct(2);
         getProduct.enqueue(new Callback<Produit>() {
@@ -68,50 +81,44 @@ public class GestionProduits extends AppCompatActivity {
         });*/
 
         //ADDING A NEW PRODUCT
-        /*Produit p = new Produit ();
-        p.setName("Chaise");
-        p.setDescription("Chaise metallique tournante capitonnée");
-        p.setPrice(630);
-        p.setQuantity(12);
-        retrofit.Call<Object> addProduct = apigs.addProduct("Chaise","Chaise metallique tournante capitonnee",630,12);
-        addProduct.enqueue(new Callback<Object>() {
+
+        /*retrofit.Call<DbServerResponse> addProduct = apigs.addProduct("Chaise","Chaise metallique tournante capitonnee",630,12);
+        addProduct.enqueue(new Callback<DbServerResponse>() {
             @Override
-            public void onResponse(Response<Object> response, Retrofit retrofit) {
-                test.setText(response.body().toString());
+            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
+                System.out.println(response.body().getStatus_message());
             }
 
             @Override
             public void onFailure(Throwable t) {
-                test.setText("kooooo");
                 System.out.println(t.getLocalizedMessage());
             }
         });*/
 
         //UPDATE PRODUCT
-        /*retrofit.Call<String> updateProduct = apigs.upDate(22,"aaa","aaa",0,0);
-        updateProduct.enqueue(new Callback<String>() {
+        /*retrofit.Call<DbServerResponse> updateProduct = apigs.upDate(39,"aaa","aaa",0,0);
+        updateProduct.enqueue(new Callback<DbServerResponse>() {
             @Override
-            public void onResponse(Response<String> response, Retrofit retrofit) {
-                test.setText(response.body().toString());
+            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
+                System.out.println(response.body().getStatus_message());
             }
 
             @Override
             public void onFailure(Throwable t) {
-                test.setText("kooooo");
+                System.out.println(t.getLocalizedMessage());
             }
         });*/
 
         //DELETE PRODUCT
-        /*retrofit.Call<Object> delProduct = apigs.delete(23);
-        delProduct.enqueue(new Callback<Object>() {
+        /*retrofit.Call<DbServerResponse> delProduct = apigs.delete(40);
+        delProduct.enqueue(new Callback<DbServerResponse>() {
             @Override
-            public void onResponse(Response<Object> response, Retrofit retrofit) {
-                test.setText(response.body().toString());
+            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
+               System.out.println(response.body().getStatus_message());
             }
 
             @Override
             public void onFailure(Throwable t) {
-                test.setText("mochklaaaa");
                 System.out.println(t.getLocalizedMessage());
             }
 

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="380px"
+    android:clickable="true">
+
+
+    <TextView
+        android:id="@+id/p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/price"
+        android:textColor="@color/colorCyan"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/q"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/p"
+        android:layout_alignStart="@+id/p"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/quantity"
+        android:textColor="@color/colorCyan"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/q"
+        android:layout_alignStart="@+id/q"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-1dp"
+        android:text="@string/modified"
+        android:textColor="@color/colorCyan"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/specificradiuscorners"
+        android:gravity="center"
+        android:text="@string/nom"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="55px"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnSupprimer"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="-18dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/buttoncorners"
+        android:text="@string/delete"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@android:color/holo_red_dark" />
+
+    <Button
+        android:id="@+id/btnModifier"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnSupprimer"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="191dp"
+        android:background="@drawable/buttoncorners"
+        android:text="@string/update"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/d"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/p"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="-50dp"
+        android:text="@string/description"
+        android:textColor="@color/colorCyan"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/p"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:text="price" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/m"
+        android:layout_alignStart="@+id/price"
+        android:layout_marginBottom="1dp"
+        android:text="quantity" />
+
+    <TextView
+        android:id="@+id/modified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/q"
+        android:layout_alignStart="@+id/price"
+        android:text="modified" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/m"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="-4dp"
+        android:gravity="center"
+        android:text="hire the decription" />
+
+
+</RelativeLayout>

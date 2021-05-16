@@ -25,7 +25,7 @@ public interface ApiGestock {
     //Add a new product
     @FormUrlEncoded
     @POST("MEJRIHamza-API-gestionDeStock/produits")
-    Call<Object> addProduct(
+    Call<DbServerResponse> addProduct(
                                 @Field("name") String name,
                                 @Field("description") String description,
                                 @Field("price") int price,
@@ -35,7 +35,7 @@ public interface ApiGestock {
     //Update product
     @FormUrlEncoded
     @PUT("MEJRIHamza-API-gestionDeStock/produits/{id}")
-    Call<String> upDate(
+    Call<DbServerResponse> upDate(
             @Path("id") int id,
             @Field("name") String name,
             @Field("description") String description,
@@ -45,5 +45,5 @@ public interface ApiGestock {
 
     //Delete product
     @DELETE("MEJRIHamza-API-gestionDeStock/produits/{id}")
-    Call<Object> delete(@Path("id") int id);
+    Call<DbServerResponse> delete(@Path("id") int id);
 }
