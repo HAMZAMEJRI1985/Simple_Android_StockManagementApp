@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         redirection = new Intent(MainActivity.this,Home.class);
                         startActivity(redirection);
                         finish();
+
                     }
                 }
             }
@@ -85,4 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

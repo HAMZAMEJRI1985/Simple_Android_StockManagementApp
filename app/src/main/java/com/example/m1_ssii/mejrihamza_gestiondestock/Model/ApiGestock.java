@@ -3,7 +3,6 @@ package com.example.m1_ssii.mejrihamza_gestiondestock.Model;
 import java.util.List;
 
 import retrofit.Call;
-import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
@@ -16,11 +15,11 @@ public interface ApiGestock {
 
     // Get all products
     @GET("MEJRIHamza-API-gestionDeStock/produits")
-    Call<List<Produit>>getAllProducts();
+    Call<List<Product>>getAllProducts();
 
     //Get a specific product
     @GET("MEJRIHamza-API-gestionDeStock/produits/{id}")
-    Call<Produit> getProduct(@Path("id") int id);
+    Call<Product> getProduct(@Path("id") int id);
 
     //Add a new product
     @FormUrlEncoded

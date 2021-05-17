@@ -1,16 +1,16 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.JsonReader;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.ApiGestock;
-import com.example.m1_ssii.mejrihamza_gestiondestock.Model.DbServerResponse;
-import com.example.m1_ssii.mejrihamza_gestiondestock.Model.Produit;
+import com.example.m1_ssii.mejrihamza_gestiondestock.Model.Product;
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.RetrofitInstance;
 import com.example.m1_ssii.mejrihamza_gestiondestock.ProductRecyclerViewAdapter.ProductAdapter;
 
@@ -20,16 +20,17 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-public class GestionProduits extends AppCompatActivity {
+public class ProductManagement extends AppCompatActivity {
 
 
     private Retrofit r = RetrofitInstance.getRetroInstance();
     private ApiGestock apigs ;
     private Intent redirection;
-    private List<Produit> lstProduits;
+    private List<Product> lstProducts;
     private RecyclerView productRecyclerView;
     private RecyclerView.LayoutManager productLayoutManager;
     private ProductAdapter productAdapter;
+    private AlertDialog.Builder alert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +42,18 @@ public class GestionProduits extends AppCompatActivity {
 
 
         //GET ALL PRODUCTS
-        retrofit.Call<List<Produit>> getProduct = apigs.getAllProducts();
-        getProduct.enqueue(new Callback<List<Produit>>() {
+        retrofit.Call<List<Product>> getProduct = apigs.getAllProducts();
+        getProduct.enqueue(new Callback<List<Product>>() {
             @Override
-            public void onResponse(Response<List<Produit>> response, Retrofit retrofit) {
-                lstProduits             = (List<Produit>) response.body();
-                Produit p = lstProduits.get(1);
+            public void onResponse(Response<List<Product>> response, Retrofit retrofit) {
+                lstProducts = (List<Product>) response.body();
+                Product p = lstProducts.get(1);
                 System.out.println(p.getQuantity());
 
                 productRecyclerView     = (RecyclerView) findViewById(R.id.product_recycler_view);
-                productLayoutManager    = new LinearLayoutManager(GestionProduits.this);
+                productLayoutManager    = new LinearLayoutManager(ProductManagement.this);
                 productRecyclerView.setLayoutManager(productLayoutManager);
-                productAdapter          = new ProductAdapter(GestionProduits.this,lstProduits);
+                productAdapter          = new ProductAdapter(ProductManagement.this, lstProducts);
                 productRecyclerView.setAdapter(productAdapter);
 
 
@@ -64,11 +65,11 @@ public class GestionProduits extends AppCompatActivity {
             }
         });
         //GET SPECIFIC PRODUCT
-        /*retrofit.Call<Produit> getProduct = apigs.getProduct(2);
-        getProduct.enqueue(new Callback<Produit>() {
+        /*retrofit.Call<Product> getProduct = apigs.getProduct(2);
+        getProduct.enqueue(new Callback<Product>() {
             @Override
-            public void onResponse(Response<Produit> response, Retrofit retrofit) {
-                Produit p = response.body();
+            public void onResponse(Response<Product> response, Retrofit retrofit) {
+                Product p = response.body();
                 test.setText(p.getDescription());
             }
 
@@ -125,5 +126,44 @@ public class GestionProduits extends AppCompatActivity {
 
         });*/
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar_product_management,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.addProduct:
+                redirection = new Intent(this,ProductAdd.class);
+                startActivity(redirection);
+                finishAffinity();
+                return true;
+            case R.id.home:
+                redirection = new Intent(this,Home.class);
+                startActivity(redirection);
+                finishAffinity();
+                return true;
+            case R.id.settings:
+                redirection = new Intent(this,Settings.class);
+                startActivity(redirection);
+                finishAffinity();
+                return true;
+            case R.id.apropos:
+                redirection = new Intent(this,About.class);
+                startActivity(redirection);
+                finishAffinity();
+                return true;
+            case R.id.logout:
+                redirection = new Intent(this,MainActivity.class);
+                startActivity(redirection);
+                finishAffinity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

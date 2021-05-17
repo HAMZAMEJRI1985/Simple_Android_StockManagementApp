@@ -13,13 +13,16 @@
     <string name="password">Mot de passe</string>
     <string name="cancel">Annuler</string>
     <string name="gestock">Gestion des produits</string>
-    <string name="setings">Paramètres</string>
     <string name="apropos">À propos</string>
     <string name="decx">Déconnexion</string>
     <string name="price">Prix</string>
     <string name="quantity">Quantité</string>
     <string name="modified">Modifié le</string>
     <string name="description">Description</string>
-    <string name="delete">Supprimer</string>
     <string name="update">Modifier</string>
+    <string name="delete">Supprimer</string>
+    <string name="add">Ajouter</string>
+    <string name="home">Home</string>
+    <string name="settings">Paramètres</string>
+
 </resources>

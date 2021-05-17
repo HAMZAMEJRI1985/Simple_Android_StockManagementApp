@@ -34,7 +34,19 @@
             android:name=".Home"
             android:theme="@style/AppThemeDefault" />
         <activity
-            android:name=".GestionProduits"
+            android:name=".ProductManagement"
+            android:theme="@style/AppThemeDefault" />
+        <activity
+            android:name=".ProductEdit"
+            android:theme="@style/AppThemeUpdateProduct" />
+        <activity
+            android:name=".ProductAdd"
+            android:theme="@style/AppThemeAddProduct" />
+        <activity
+            android:name=".About"
+            android:theme="@style/AppThemeDefault"/>
+        <activity
+            android:name=".Settings"
             android:theme="@style/AppThemeDefault" />
     </application>
 

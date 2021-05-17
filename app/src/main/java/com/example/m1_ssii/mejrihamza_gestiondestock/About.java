@@ -5,40 +5,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class Home extends AppCompatActivity {
+public class About extends AppCompatActivity {
 
-    private Button btnGestock,btnApropos,btnSettings,btnDeconx;
     private Intent redirection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Accueil");
-        setContentView(R.layout.activity_home);
-
-        btnGestock  = (Button) findViewById(R.id.btnGeStock);
-        btnApropos  = (Button) findViewById(R.id.btnApropos);
-        btnSettings = (Button) findViewById(R.id.btnSeting);
-        btnDeconx   = (Button) findViewById(R.id.btnDecx);
-
-        btnGestock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirection = new Intent(Home.this,ProductManagement.class);
-                startActivity(redirection);
-                finish();
-            }
-        });
+        getSupportActionBar().setTitle("À propos");
+        setContentView(R.layout.activity_apropos2);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.default_menu,menu);
-        menu.getItem(0).setTitle("Gestion des produits");
-        menu.getItem(1).setTitle("Paramètres");
+        menu.getItem(0).setTitle("Home");
+        menu.getItem(1).setTitle("Gestion des produits");
         menu.getItem(2).setTitle("A propos");
         menu.getItem(3).setTitle("Déconnexion");
         return true;
@@ -48,12 +31,12 @@ public class Home extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                redirection = new Intent(this,ProductManagement.class);
+                redirection = new Intent(this,Home.class);
                 startActivity(redirection);
                 finishAffinity();
                 return true;
             case R.id.item2:
-                redirection = new Intent(this,Settings.class);
+                redirection = new Intent(this,ProductManagement.class);
                 startActivity(redirection);
                 finishAffinity();
                 return true;
@@ -71,4 +54,5 @@ public class Home extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

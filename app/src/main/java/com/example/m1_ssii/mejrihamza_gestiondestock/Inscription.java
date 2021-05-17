@@ -120,6 +120,7 @@ public class Inscription extends AppCompatActivity {
 
     }
 
+    //Function to check empty EditText
     public boolean notValid(EditText e ){
         if(e.getText().toString().trim().equals(""))
             return true;

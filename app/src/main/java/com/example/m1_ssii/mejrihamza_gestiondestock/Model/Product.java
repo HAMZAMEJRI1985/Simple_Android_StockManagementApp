@@ -1,6 +1,6 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock.Model;
 
-public class Produit {
+public class Product {
 
 
     private int id;
@@ -11,9 +11,9 @@ public class Produit {
     private String created;
     private String modified;
 
-    public Produit() {}
+    public Product() {}
 
-    public Produit(int id, String name, String description, int price, int quantity, String created, String modified) {
+    public Product(int id, String name, String description, int price, int quantity, String created, String modified) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -23,7 +23,7 @@ public class Produit {
         this.modified = modified;
     }
 
-    public Produit(String name, String description, int price, int quantity, String created, String modified) {
+    public Product(String name, String description, int price, int quantity, String created, String modified) {
         this.name = name;
         this.description = description;
         this.price = price;

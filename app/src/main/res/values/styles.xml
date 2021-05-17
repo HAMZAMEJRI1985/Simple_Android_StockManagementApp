@@ -14,4 +14,16 @@
         <item name="colorAccent">#0F9DE8</item>
     </style>
 
+    <style name="AppThemeUpdateProduct" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/holo_red_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_red_dark</item>
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="AppThemeAddProduct" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/holo_green_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_light</item>
+        <item name="colorAccent">@android:color/holo_green_light</item>
+    </style>
+
 </resources>

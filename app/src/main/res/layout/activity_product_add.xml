@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ProductAdd"
+        >
+
+        <TextView
+            android:id="@+id/labelname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="70dp"
+            android:text="@string/nom"
+            android:layout_marginTop="71dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="37dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/labelprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="177dp"
+        android:text="@string/price" />
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="212dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/labelquantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/labelname"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="-21dp"
+        android:text="@string/quantity" />
+
+    <EditText
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="208dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/labeldescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="170dp"
+        android:text="@string/description" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="102dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/btnAnnuler"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/labelname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-59dp"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/buttoncorners"
+        android:text="@string/cancel"
+        android:textColor="@android:color/white"
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAjouter"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnAnnuler"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp"
+        android:text="@string/add"
+        android:background="@drawable/buttoncorners"
+        android:textColor="@android:color/white"
+        android:textSize="50px"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/holo_green_light"/>
+</RelativeLayout>
