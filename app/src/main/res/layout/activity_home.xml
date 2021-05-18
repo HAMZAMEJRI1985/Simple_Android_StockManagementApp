@@ -21,7 +21,7 @@
         android:textSize="50px"
         android:textStyle="bold" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnSeting"
         android:layout_width="201dp"
         android:layout_height="297dp"
@@ -33,7 +33,8 @@
         android:textColor="@android:color/white"
         android:textSize="50px"
         android:textStyle="bold"
-        android:background="@android:color/background_dark"/>
+        android:background="@android:color/background_dark"
+        app:srcCompat="@drawable/homesettingsicone"/>
 
     <Button
         android:id="@+id/btnApropos"
@@ -49,7 +50,7 @@
         android:textStyle="bold"
         android:background="@color/colorPink"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnDecx"
         android:layout_width="201dp"
         android:layout_height="297dp"
@@ -61,5 +62,6 @@
         android:textColor="@android:color/white"
         android:textSize="50px"
         android:textStyle="bold"
-        android:background="@android:color/holo_red_dark"/>
+        android:background="@color/colorRed"
+        app:srcCompat="@drawable/logoutlogo" />
 </RelativeLayout>

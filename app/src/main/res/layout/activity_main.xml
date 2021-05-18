@@ -9,6 +9,18 @@
     android:background="@drawable/accueil"
     >
 
+    <ProgressBar
+        android:id="@+id/pBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="234dp"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="145dp"
+        android:indeterminateTint="@color/colorPink"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -50,7 +62,7 @@
         android:inputType="textPersonName"
         android:text="mejrihamzaemail@gmail.com"
         android:textColor="@android:color/black"
-        android:textSize="50px" />/>
+        android:textSize="40px" />
 
     <EditText
         android:id="@+id/password"
@@ -65,7 +77,7 @@
         android:inputType="textPassword"
         android:text="12345678"
         android:textColor="@android:color/black"
-        android:textSize="50px" />
+        android:textSize="40px" />
 
     <Button
         android:id="@+id/cx"

@@ -2,17 +2,23 @@ package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
-    private Button btnGestock,btnApropos,btnSettings,btnDeconx;
+    private Button btnGestock,btnApropos;
+    private ImageButton btnDeconx,btnSettings;
     private Intent redirection;
+    private AlertDialog.Builder alert ;
     private SharedPreferences pref;
     public static final String MY_PREFERENCES = "user_details";
 
@@ -22,10 +28,10 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setTitle("Accueil");
         setContentView(R.layout.activity_home);
 
-        btnGestock  = (Button) findViewById(R.id.btnGeStock);
-        btnApropos  = (Button) findViewById(R.id.btnApropos);
-        btnSettings = (Button) findViewById(R.id.btnSeting);
-        btnDeconx   = (Button) findViewById(R.id.btnDecx);
+        btnGestock  = (Button)      findViewById(R.id.btnGeStock);
+        btnApropos  = (Button)      findViewById(R.id.btnApropos);
+        btnSettings = (ImageButton) findViewById(R.id.btnSeting);
+        btnDeconx   = (ImageButton) findViewById(R.id.btnDecx);
 
         btnGestock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,17 +61,38 @@ public class Home extends AppCompatActivity {
         });
 
         btnDeconx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
-                SharedPreferences.Editor prefEditor = pref.edit();
-                prefEditor.clear();
-                prefEditor.commit();
-                redirection = new Intent(Home.this,MainActivity.class);
-                startActivity(redirection);
-                finish();
-            }
-        });
+                    @Override
+                    public void onClick(View v) {
+                        alert       = new AlertDialog.Builder(Home.this);
+                        LayoutInflater dialogLayouInflater = LayoutInflater.from(Home.this);
+                            final View finalDialogView         = dialogLayouInflater.inflate(R.layout.logout_dialog,null);
+                        alert.setView(finalDialogView);
+                            final Button btnQuitter   = (Button) finalDialogView.findViewById(R.id.btnLogout);
+                            final Button btnAnnuler   = (Button) finalDialogView.findViewById(R.id.btnCancel);
+                        alert.setTitle("Attention !!");
+                            final AlertDialog show = alert.show();
+                        btnAnnuler.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                show.dismiss();
+                            }
+                        });
+                        btnQuitter.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
+                                SharedPreferences.Editor prefEditor = pref.edit();
+                                prefEditor.clear();
+                                prefEditor.commit();
+                                redirection = new Intent(Home.this,MainActivity.class);
+                                startActivity(redirection);
+                                finish();
+                                show.dismiss();
+                            }
+                        });
+
+                    }
+            });
     }
 
     @Override
@@ -97,6 +124,10 @@ public class Home extends AppCompatActivity {
                 finishAffinity();
                 return true;
             case R.id.item4:
+                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = pref.edit();
+                prefEditor.clear();
+                prefEditor.commit();
                 redirection = new Intent(this,MainActivity.class);
                 startActivity(redirection);
                 finishAffinity();

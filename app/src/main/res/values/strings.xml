@@ -33,6 +33,7 @@
     <string name="save">Enregistrer</string>
     <string name="rememberpassword">Mémoiriser mot de passe</string>
     <string name="deleteaccountlast">Voulez vous vraiment supprimer votre compte?</string>
+    <string name="quit">Voulez vous vraiment quitter ?</string>
     <string name="aboutdescription">
         GeStock est une application         développée dans
         le cadre de mini-projet du module développement

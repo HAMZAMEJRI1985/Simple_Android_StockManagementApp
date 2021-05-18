@@ -12,7 +12,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="@string/deleteaccountlast"
+        android:text="@string/quit"
         android:textAllCaps="false"
         android:textColor="#da0c0c"
         android:textSize="24sp"
@@ -41,21 +41,21 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="130dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:textColor="#ffffffff"
             android:textSize="20sp"
-            android:background="@drawable/blackbuttoncorners"/>
+            android:background="@drawable/buttoncorners"/>
 
         <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="130dp"
+            android:id="@+id/btnLogout"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/redbuttoncorners"
             android:gravity="center_vertical|center_horizontal"
-            android:text="@string/delete"
+            android:text="@string/decx"
             android:textColor="#ffffffff"
             android:textSize="20sp" />
 

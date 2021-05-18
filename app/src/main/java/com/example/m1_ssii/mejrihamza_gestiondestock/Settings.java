@@ -1,12 +1,8 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,13 +16,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.m1_ssii.mejrihamza_gestiondestock.DataBase.UserDataBaseHelper;
 import com.example.m1_ssii.mejrihamza_gestiondestock.Model.User;
-
-import java.util.Set;
 
 public class Settings extends AppCompatActivity{
 
@@ -339,6 +332,7 @@ public class Settings extends AppCompatActivity{
                 alert.setView(finalDialogView);
                         final Button btnSupprimer = (Button) finalDialogView.findViewById(R.id.btnDelete);
                         final Button btnAnnuler   = (Button) finalDialogView.findViewById(R.id.btnCancel);
+
                 alert.setTitle("Attention !! dernière chance !");
                 final AlertDialog show = alert.show();
                 btnAnnuler.setOnClickListener(new View.OnClickListener() {
