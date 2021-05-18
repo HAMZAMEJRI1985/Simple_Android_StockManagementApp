@@ -120,9 +120,6 @@ public class ProductEdit extends AppCompatActivity {
 
     }
 
-
-
-
     public void putExtrasInFields (Intent reception){
         this.name.setText(reception.getStringExtra("name"));
         this.price.setText(String.valueOf(reception.getIntExtra("price",0)));

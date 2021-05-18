@@ -1,6 +1,7 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,12 +10,14 @@ import android.view.MenuItem;
 public class About extends AppCompatActivity {
 
     private Intent redirection;
+    private SharedPreferences pref;
+    public static final String MY_PREFERENCES = "user_details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("À propos");
-        setContentView(R.layout.activity_apropos2);
+        setContentView(R.layout.activity_about);
     }
 
     @Override
@@ -46,9 +49,13 @@ public class About extends AppCompatActivity {
                 finishAffinity();
                 return true;
             case R.id.item4:
-                redirection = new Intent(this,MainActivity.class);
+                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = pref.edit();
+                prefEditor.clear();
+                prefEditor.commit();
+                redirection = new Intent(About.this,MainActivity.class);
                 startActivity(redirection);
-                finishAffinity();
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

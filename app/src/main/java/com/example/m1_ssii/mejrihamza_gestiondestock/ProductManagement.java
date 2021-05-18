@@ -1,6 +1,7 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,8 @@ public class ProductManagement extends AppCompatActivity {
     private RecyclerView productRecyclerView;
     private RecyclerView.LayoutManager productLayoutManager;
     private ProductAdapter productAdapter;
-    private AlertDialog.Builder alert;
+    private SharedPreferences pref;
+    public static final String MY_PREFERENCES = "user_details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,9 +160,13 @@ public class ProductManagement extends AppCompatActivity {
                 finishAffinity();
                 return true;
             case R.id.logout:
-                redirection = new Intent(this,MainActivity.class);
+                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = pref.edit();
+                prefEditor.clear();
+                prefEditor.commit();
+                redirection = new Intent(ProductManagement.this,MainActivity.class);
                 startActivity(redirection);
-                finishAffinity();
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -2,6 +2,7 @@ package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCx,btnSinsc;
     private Intent redirection;
     private AlertDialog.Builder alert;
-    UserDataBaseHelper db = new UserDataBaseHelper(MainActivity.this);
+    private UserDataBaseHelper db ;
+    public static final String MY_PREFERENCES = "user_details";
+    private SharedPreferences pref;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +37,26 @@ public class MainActivity extends AppCompatActivity {
         passwd      = (EditText) findViewById(R.id.password);
         btnCx       = (Button) findViewById(R.id.cx);
         btnSinsc    = (Button) findViewById(R.id.insc);
+        pref = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
 
+        //If remember password box is checked : bypass login screen
+        if(pref.getBoolean("checked",false)) {
+            redirection = new Intent(MainActivity.this,Home.class);
+            startActivity(redirection);
+            finish();
+        }
+
+        //On click sign up button
         btnSinsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inscriptinIntent;
-                inscriptinIntent = new Intent(MainActivity.this,Inscription.class);
-                startActivity(inscriptinIntent);
+                redirection = new Intent(MainActivity.this,Inscription.class);
+                startActivity(redirection);
                 finish();
             }
         });
 
+        //On click login button
         btnCx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                     alert.show();
                 }else{
+                    db = new UserDataBaseHelper(MainActivity.this);
                     db.open();
                     User u = db.getUser(log.getText().toString(),passwd.getText().toString());
                     if(u.getNom() == null){
@@ -74,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
                         });
                         alert.show();
                     }else{
+                        SharedPreferences.Editor prefEditor = pref.edit();
+                        prefEditor.putInt("id", u.getId());
+                        prefEditor.putString("nom", u.getNom());
+                        prefEditor.putString("prenom", u.getPrenom());
+                        prefEditor.putInt("tel",u.getTel());
+                        prefEditor.putString("email", u.getEmail());
+                        prefEditor.putString("password", u.getPassword());
+                        //To remember password : remember password box is checked
+                        prefEditor.putBoolean("checked",false);
+                        prefEditor.commit();
                         Toast.makeText(MainActivity.this, "Bonjour "+u.getNom()+" "+u.getPrenom(), Toast.LENGTH_SHORT).show();
                         redirection = new Intent(MainActivity.this,Home.class);
                         startActivity(redirection);

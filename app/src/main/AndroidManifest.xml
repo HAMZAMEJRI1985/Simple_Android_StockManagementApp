@@ -44,10 +44,11 @@
             android:theme="@style/AppThemeAddProduct" />
         <activity
             android:name=".About"
-            android:theme="@style/AppThemeDefault"/>
+            android:theme="@style/AppThemeAbout"/>
         <activity
             android:name=".Settings"
-            android:theme="@style/AppThemeDefault" />
+            android:theme="@style/AppThemeSettings" />
     </application>
 
 </manifest>
+

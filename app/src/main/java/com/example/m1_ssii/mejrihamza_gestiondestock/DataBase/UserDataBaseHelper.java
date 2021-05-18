@@ -61,7 +61,9 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         conteneur.put(COLUMN_TEL,u.getTel());
         conteneur.put(COLUMN_EMAIL,u.getEmail());
         conteneur.put(COLUMN_PASSWORD,u.getPassword());
-        return mdb.insert(TABLE_NAME,null,conteneur);
+        long res = mdb.insert(TABLE_NAME,null,conteneur);
+        mdb.close();
+        return res;
     }
 
     public User getUser(String log, String password){
@@ -76,6 +78,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
             u.setEmail(res.getString(4));
             u.setPassword(res.getString(5));
         }
+        mdb.close();
         return u;
 
     }
@@ -96,6 +99,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
             lst_U.add(u);
         }
         res.close();
+        mdb.close();
         return lst_U ;
     }
 
@@ -107,13 +111,16 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         conteneur.put(COLUMN_TEL,u.getTel());
         conteneur.put(COLUMN_EMAIL,u.getEmail());
         conteneur.put(COLUMN_PASSWORD,u.getPassword());
+        int res = mdb.update(TABLE_NAME,conteneur,COLUMN_ID+"=?",new String[]{String.valueOf(u.getId())});
+        mdb.close();
 
-        return mdb.update(TABLE_NAME,conteneur,COLUMN_ID+"=?",new String[]{String.valueOf(u.getId())});
+        return res;
     }
 
-    public void delete (User u){
+    public int delete (User u){
         mdb = this.getWritableDatabase();
-        mdb.delete(TABLE_NAME,COLUMN_ID+"=?",new String[]{String.valueOf(u.getId())});
+        int res =mdb.delete(TABLE_NAME,COLUMN_ID+"=?",new String[]{String.valueOf(u.getId())});
         mdb.close();
+        return res;
     }
 }

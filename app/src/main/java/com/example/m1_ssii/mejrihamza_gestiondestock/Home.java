@@ -1,6 +1,7 @@
 package com.example.m1_ssii.mejrihamza_gestiondestock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +13,8 @@ public class Home extends AppCompatActivity {
 
     private Button btnGestock,btnApropos,btnSettings,btnDeconx;
     private Intent redirection;
+    private SharedPreferences pref;
+    public static final String MY_PREFERENCES = "user_details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,37 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirection = new Intent(Home.this,ProductManagement.class);
+                startActivity(redirection);
+                finish();
+            }
+        });
+
+        btnApropos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirection = new Intent(Home.this,About.class);
+                startActivity(redirection);
+                finish();
+            }
+        });
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirection = new Intent(Home.this,Settings.class);
+                startActivity(redirection);
+                finish();
+            }
+        });
+
+        btnDeconx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pref  = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = pref.edit();
+                prefEditor.clear();
+                prefEditor.commit();
+                redirection = new Intent(Home.this,MainActivity.class);
                 startActivity(redirection);
                 finish();
             }

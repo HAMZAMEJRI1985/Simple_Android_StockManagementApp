@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MEJRIHamza-GestionDeStock</string>
-    <string name="log">email</string>
-    <string name="passwd">password</string>
+    <string name="log">. email</string>
+    <string name="passwd">. password</string>
     <string name="con">se connecter</string>
     <string name="ins">s\'inscrire</string>
     <string name="nom">Nom</string>
@@ -24,5 +24,24 @@
     <string name="add">Ajouter</string>
     <string name="home">Home</string>
     <string name="settings">Paramètres</string>
+    <string name="back">Retour</string>
+    <string name="oldpasword">Ancien mot de passe</string>
+    <string name="newpassword">Nouveau mot de passe</string>
+    <string name="newpasswordconfirm">Confirmer le nouveau mot de passe</string>
+    <string name="show">Show</string>
+    <string name="deleteaccount">Supprimer mon compte</string>
+    <string name="save">Enregistrer</string>
+    <string name="rememberpassword">Mémoiriser mot de passe</string>
+    <string name="deleteaccountlast">Voulez vous vraiment supprimer votre compte?</string>
+    <string name="aboutdescription">
+        GeStock est une application         développée dans
+        le cadre de mini-projet du module développement
+        des applications mobiles. En effet, ce travail
+        consiste à manipuler les comptes utilisateurs
+        à travers SQLite, et les produits à travers
+        une API Rest. Pour ce faire, cette application prend
+        en charge plusieurs composants et bibliothèques
+        android telles que Retrofit et RecyclerView.
+    </string>
 
 </resources>

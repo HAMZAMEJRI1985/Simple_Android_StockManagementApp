@@ -1,9 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".Settings">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/labelname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nom" />
+
+    <EditText
+        android:id="@+id/name_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="80dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/labelprenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="86dp"
+        android:text="@string/prenom" />
+
+    <EditText
+        android:id="@+id/prenom_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name_"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="105dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/labeltel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="157dp"
+        android:text="@string/tel" />
+
+    <EditText
+        android:id="@+id/tel_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/name_"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="177dp"
+        android:layout_marginEnd="0dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/labelemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="316dp"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/email_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name_"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="270dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/labelpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="246dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/password_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/email_"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="200dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnRetour"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelemail"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="71dp"
+        android:background="@drawable/buttoncorners"
+        android:text="@string/back"
+        android:textColor="@android:color/white"
+        android:textSize="50px"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/black" />
+
+    <Button
+        android:id="@+id/btnEnregistrer"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnRetour"
+        android:layout_alignEnd="@+id/email_"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-60dp"
+        android:background="@drawable/buttoncorners"
+        android:text="@string/save"
+        android:textColor="@android:color/white"
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imgButtonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEnregistrer"
+        android:layout_alignEnd="@+id/email_"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-76dp"
+        android:background="@android:color/white"
+        app:srcCompat="@drawable/deleteicone" />
+
+    <CheckBox
+        android:id="@+id/rememberpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/labelname"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="147dp"
+        android:text="@string/rememberpassword" />
+</RelativeLayout>

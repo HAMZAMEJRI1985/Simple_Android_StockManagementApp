@@ -26,4 +26,15 @@
         <item name="colorAccent">@android:color/holo_green_light</item>
     </style>
 
+    <style name="AppThemeSettings" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+
+    <style name="AppThemeAbout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPink</item>
+        <item name="colorPrimaryDark">@color/colorPink</item>
+        <item name="colorAccent">@color/colorPink</item>
+    </style>
 </resources>
