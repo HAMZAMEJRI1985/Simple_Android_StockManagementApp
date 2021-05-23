@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements Runnable{
             if(u.getNom() == null){
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                 alert.setTitle("ATTENTION !!");
-                alert.setMessage("Login et/ou mot de passe erroné");
+                alert.setMessage("Login et/ou mot de passe incorrect(s)");
                 alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -66,67 +66,6 @@ public class ProductManagement extends AppCompatActivity {
                 System.out.println("FAILED");
             }
         });
-        //GET SPECIFIC PRODUCT
-        /*retrofit.Call<Product> getProduct = apigs.getProduct(2);
-        getProduct.enqueue(new Callback<Product>() {
-            @Override
-            public void onResponse(Response<Product> response, Retrofit retrofit) {
-                Product p = response.body();
-                test.setText(p.getDescription());
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                test.setText("FAILED");
-            }
-
-
-        });*/
-
-        //ADDING A NEW PRODUCT
-
-        /*retrofit.Call<DbServerResponse> addProduct = apigs.addProduct("Chaise","Chaise metallique tournante capitonnee",630,12);
-        addProduct.enqueue(new Callback<DbServerResponse>() {
-            @Override
-            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
-                System.out.println(response.body().getStatus_message());
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                System.out.println(t.getLocalizedMessage());
-            }
-        });*/
-
-        //UPDATE PRODUCT
-        /*retrofit.Call<DbServerResponse> updateProduct = apigs.upDate(39,"aaa","aaa",0,0);
-        updateProduct.enqueue(new Callback<DbServerResponse>() {
-            @Override
-            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
-                System.out.println(response.body().getStatus_message());
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                System.out.println(t.getLocalizedMessage());
-            }
-        });*/
-
-        //DELETE PRODUCT
-        /*retrofit.Call<DbServerResponse> delProduct = apigs.delete(40);
-        delProduct.enqueue(new Callback<DbServerResponse>() {
-            @Override
-            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
-               System.out.println(response.body().getStatus_message());
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                System.out.println(t.getLocalizedMessage());
-            }
-
-
-        });*/
 
     }
 

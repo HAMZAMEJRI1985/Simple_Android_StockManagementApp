@@ -49,50 +49,62 @@ public class ProductAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                alert = new AlertDialog.Builder(ProductAdd.this);
-                alert.setTitle("ATTENTION !");
-                alert.setMessage("Voulez vous vraiment ajouter ce produit?");
-                alert.setPositiveButton("Ajouter", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(final DialogInterface dialog, int which) {
-                        retrofit.Call<DbServerResponse> addCall = apigs.addProduct(
-                                name.getText().toString(),
-                                description.getText().toString(),
-                                Integer.parseInt(price.getText().toString()),
-                                Integer.parseInt(quantity.getText().toString())
-                        );
-                        addCall.enqueue(new Callback<DbServerResponse>() {
-                            @Override
-                            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
-                                if(response.body().getStatus().trim().equals("1")) {
-                                    Toast.makeText(ProductAdd.this, "Produit ajouté", Toast.LENGTH_LONG).show();
-                                    redirection = new Intent(ProductAdd.this, ProductManagement.class);
-                                    startActivity(redirection);
-                                    finishAffinity();
-                                }else{
-                                    Toast.makeText(ProductAdd.this,"Problème d'jout",Toast.LENGTH_LONG).show();
-                                    System.out.println(response.body().getStatus_message());
+                if(notValid(name)|| notValid(price) || notValid(quantity) || notValid(description)){
+                        alert = new AlertDialog.Builder(ProductAdd.this)
+                                .setTitle("ATTENTION !")
+                                .setMessage("Veuillez remplir tous les champs SVP.")
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alert.show();
+                }else{
+                    alert = new AlertDialog.Builder(ProductAdd.this);
+                    alert.setTitle("ATTENTION !");
+                    alert.setMessage("Voulez vous vraiment ajouter ce produit?");
+                    alert.setPositiveButton("Ajouter", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(final DialogInterface dialog, int which) {
+                            retrofit.Call<DbServerResponse> addCall = apigs.addProduct(
+                                    name.getText().toString(),
+                                    description.getText().toString(),
+                                    Integer.parseInt(price.getText().toString()),
+                                    Integer.parseInt(quantity.getText().toString())
+                            );
+                            addCall.enqueue(new Callback<DbServerResponse>() {
+                                @Override
+                                public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
+                                    if(response.body().getStatus().trim().equals("1")) {
+                                        Toast.makeText(ProductAdd.this, "Produit ajouté", Toast.LENGTH_LONG).show();
+                                        redirection = new Intent(ProductAdd.this, ProductManagement.class);
+                                        startActivity(redirection);
+                                        finishAffinity();
+                                    }else{
+                                        Toast.makeText(ProductAdd.this,"Problème d'jout",Toast.LENGTH_LONG).show();
+                                        System.out.println(response.body().getStatus_message());
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Throwable t) {
-                                Toast.makeText(ProductAdd.this,"Problème d'jout",Toast.LENGTH_LONG).show();
-                                dialog.dismiss();
-                                t.getStackTrace();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Throwable t) {
+                                    Toast.makeText(ProductAdd.this,"Problème d'jout",Toast.LENGTH_LONG).show();
+                                    dialog.dismiss();
+                                    t.getStackTrace();
+                                }
+                            });
 
-                    }
-                });
-                alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alert.show();
-
+                        }
+                    });
+                    alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.show();
+                }
             }
         });
 

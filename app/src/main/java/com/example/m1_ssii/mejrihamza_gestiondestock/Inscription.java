@@ -20,7 +20,7 @@ public class Inscription extends AppCompatActivity {
     private Button btnAnnuler,btnEnregistrer;
     private Intent redirection;
     private AlertDialog.Builder alert;
-    UserDataBaseHelper db = new UserDataBaseHelper(Inscription.this);
+    private UserDataBaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,7 @@ public class Inscription extends AppCompatActivity {
                         alert.show();
                     }else{
                         //Ajout de l'utilisateur dans la base
+                        db = new UserDataBaseHelper(Inscription.this);
                         db.open();
                         User u = new User();
                         u.setNom(nom.getText().toString());

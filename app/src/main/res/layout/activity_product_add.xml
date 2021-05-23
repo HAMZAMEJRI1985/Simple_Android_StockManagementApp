@@ -84,8 +84,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="102dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnAnnuler"

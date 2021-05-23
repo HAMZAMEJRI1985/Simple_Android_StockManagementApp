@@ -59,50 +59,64 @@ public class ProductEdit extends AppCompatActivity {
         btnModifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alert = new AlertDialog.Builder(ProductEdit.this);
-                alert.setTitle("ATTENTION !");
-                alert.setMessage("Voulez vous vraiment enregistrer les modification ?");
-                alert.setPositiveButton("Enregistrer", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(final DialogInterface dialog, int which) {
-
-                        retrofit.Call<DbServerResponse> updateCall = apigs.upDate(
-                                reception.getIntExtra("id",0),
-                                name.getText().toString(),
-                                description.getText().toString(),
-                                Integer.parseInt(price.getText().toString()),
-                                Integer.parseInt(quantity.getText().toString())
-                        );
-                        updateCall.enqueue(new Callback<DbServerResponse>() {
-                            @Override
-                            public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
-                                if(response.body().getStatus().trim().equals("1")) {
-                                    Toast.makeText(ProductEdit.this, "Produit modifié", Toast.LENGTH_LONG).show();
-                                    redirection = new Intent(ProductEdit.this, ProductManagement.class);
-                                    startActivity(redirection);
-                                    finishAffinity();
-                                }else{
-                                    Toast.makeText(ProductEdit.this,"Problème de modification",Toast.LENGTH_LONG).show();
-                                    System.out.println(response.body().getStatus_message());
+                if (notValid(name) || notValid(price) || notValid(quantity) || notValid(description)) {
+                    alert = new AlertDialog.Builder(ProductEdit.this)
+                            .setTitle("ATTENTION !")
+                            .setMessage("Veuillez remplir tous les champs SVP.")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
                                 }
-                            }
+                            });
+                    alert.show();
+                }else{
 
-                            @Override
-                            public void onFailure(Throwable t) {
-                                Toast.makeText(ProductEdit.this,"Problème de modification",Toast.LENGTH_LONG).show();
-                                dialog.dismiss();
-                                t.getStackTrace();
-                            }
-                        });
-                    }
-                });
-                alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alert.show();
+                    alert = new AlertDialog.Builder(ProductEdit.this);
+                    alert.setTitle("ATTENTION !");
+                    alert.setMessage("Voulez vous vraiment enregistrer les modification ?");
+                    alert.setPositiveButton("Enregistrer", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(final DialogInterface dialog, int which) {
+
+                            retrofit.Call<DbServerResponse> updateCall = apigs.upDate(
+                                    reception.getIntExtra("id",0),
+                                    name.getText().toString(),
+                                    description.getText().toString(),
+                                    Integer.parseInt(price.getText().toString()),
+                                    Integer.parseInt(quantity.getText().toString())
+                            );
+                            updateCall.enqueue(new Callback<DbServerResponse>() {
+                                @Override
+                                public void onResponse(Response<DbServerResponse> response, Retrofit retrofit) {
+                                    if(response.body().getStatus().trim().equals("1")) {
+                                        Toast.makeText(ProductEdit.this, "Produit modifié", Toast.LENGTH_LONG).show();
+                                        redirection = new Intent(ProductEdit.this, ProductManagement.class);
+                                        startActivity(redirection);
+                                        finishAffinity();
+                                    }else{
+                                        Toast.makeText(ProductEdit.this,"Problème de modification",Toast.LENGTH_LONG).show();
+                                        System.out.println(response.body().getStatus_message());
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Throwable t) {
+                                    Toast.makeText(ProductEdit.this,"Problème de modification",Toast.LENGTH_LONG).show();
+                                    dialog.dismiss();
+                                    t.getStackTrace();
+                                }
+                            });
+                        }
+                    });
+                    alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.show();
+                }
             }
         });
 
@@ -118,6 +132,13 @@ public class ProductEdit extends AppCompatActivity {
 
 
 
+    }
+    //Function to check empty EditText
+    public boolean notValid(EditText e ){
+        if(e.getText().toString().trim().equals(""))
+            return true;
+        else
+            return false;
     }
 
     public void putExtrasInFields (Intent reception){
